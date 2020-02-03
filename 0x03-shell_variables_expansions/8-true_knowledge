@@ -1,2 +1,2 @@
 #!/bin/bash
-export HOLBERTONY="Betty"
+TRUEKNOWLEDGE=$TRUEKNOWLEDGE+=128
