@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 # This script is displaying "Holberton School" 10 times using for
 LIST="$(ls)"
-f=0
-k=""
 for i in $LIST
 do
-echo ${i#[0-9]*-}
+echo "${i#[0-9]*-}"
 done
