@@ -5,24 +5,5 @@ f=0
 k=""
 for i in $LIST
 do
-    f=0
-    k=""
-    for j in $i
-    do
-	if [ "$j" = "\n" ]
-	then
-	    continue
-	fi
-        if [ $f == 1 ]
-        then
-            : $[ k = $k + $j ]
-        fi
-
-	if [ "$j" = "-" ]
-	then
-	    f=1
-	fi
-    done
-echo "$k"
-
+echo ${i#[0-9]*-}
 done
