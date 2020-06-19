@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# This script is displaying "Holberton School" 9 times and the 9th is Hi
+n=10
+i=0
+while [ $i -ne $n ]
+do
+    if [ $i -ne 8 ]
+    then
+    echo "Holberton School"
+    fi
+    if [ $i -eq 8 ]
+    then
+	echo "Hi"
+    fi
+    let "i++"
+done

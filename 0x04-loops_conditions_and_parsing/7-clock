@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# This script is displaying "Holberton School" 9 times and the 9th is Hi
+h=0
+i=1
+while [ $h -ne 13 ]
+do
+    if [ $i -eq 1 ]
+    then
+	echo "Hour: $h"
+    fi
+
+    echo "$i"
+
+    if [ $i -eq 59 ]
+    then
+	let "h++"
+	i=1
+	continue
+    fi
+
+    let "i++"
+done
