@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# This script is displaying "Holberton School" 10 times using for
+pi=0
+if [ $# == 0 ]
+then
+echo "Usage: manage_my_process {start|stop|restart}"
+else
+    if [ "$1" = "start" ]
+    then
+	./manage_my_process &
+	sudo install -m 777 /dev/null /var/run/my_process.pid
+	pi=$(pgrep -f ./manage_my_process)
+	echo "$pi" > /var/run/my_process.pid
+	echo "manage_my_process started"
+    elif [ "$1" = "stop" ]
+    then
+	pkill -f ./manage_my_process
+	sudo rm /var/run/my_process.pid
+	echo "manage_my_process stopped"
+    elif [ "$1" = "restart" ]
+    then
+	pkill -f ./manage_my_process
+	sudo rm /var/run/my_process.pid
+	./manage_my_process &
+	sudo install -m 777 /dev/null /var/run/my_process.pid
+	pi=$(pgrep -f ./manage_my_process)
+	echo "$pi" > /var/run/my_process.pid
+	echo "manage_my_process restarted"
+    fi
+fi
