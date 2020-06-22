@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script is displaying "Holberton School" 10 times using for
+pi=$(pgrep bash | tail -3 | head -1)
+kill "$pi"

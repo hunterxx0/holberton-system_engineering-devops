@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# This script is displaying "Holberton School" 10 times using for
+pi=$(pgrep bash | tail -3 | head -1)
+sudo install -m 777 /dev/null /var/run/holbertonscript.pid
+echo "$pi" > /var/run/holbertonscript.pid
+init_script() {
+    echo "Y U no love me?!"
+    exit
+}
+term_script() {
+    echo "I hate the kill command"
+    sudo rm /var/run/holbertonscript.pid
+    exit
+}
+
+trap init_script SIGINT
+trap term_script SIGQUIT SIGTERM
+
+
+while true
+do
+echo "To infinity and beyond"
+sleep 2
+done
