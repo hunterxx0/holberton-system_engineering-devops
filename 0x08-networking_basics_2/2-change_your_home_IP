@@ -1,0 +1,30 @@
+#!/bin/bash
+# configures an Ubuntu server's hosts
+sudo cp /etc/hosts ./hosts
+ip0="127.0.0.2"
+host1="localhost"
+ip1="8.8.8.8"
+host2="facebook.com"
+matches0="$(grep -n "\slocalhost" hosts | cut -f1 -d:)"
+matches1="$(grep -n $host2 hosts | cut -f1 -d:)"
+update0="${ip0} ${host1}"
+update1="${ip1} ${host2}"
+if [ ! -z "$matches0" ]
+then
+    while read -r number; do
+        sudo sed -i "${number}s/.*/${update0}/" hosts
+    done <<< "$matches0"
+else
+    sed -i "1i$update0" hosts
+fi
+
+if [ ! -z "$matches1" ]
+then
+    while read -r number; do
+        sudo sed -i "${number}s/.*/${update1}/" hosts
+    done <<< "$matches1"
+else
+    sed -i "2i$update1" hosts
+fi
+
+sudo cp -f hosts /etc/hosts
