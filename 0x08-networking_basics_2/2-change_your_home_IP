@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # configures an Ubuntu server's hosts
 sudo cp /etc/hosts ./hosts
 ip0="127.0.0.2"
