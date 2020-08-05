@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Give me a page!
-
+echo "listen 8080" >> sudo /etc/apache2/ports.conf
 sudo /etc/init.d/apache2 restart
