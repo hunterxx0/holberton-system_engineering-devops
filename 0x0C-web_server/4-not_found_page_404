@@ -5,7 +5,7 @@ sudo apt-get install nginx -y
 sudo touch /var/www/html/404.html
 sudo chmod 777 /var/www/html/*
 echo "Holberton School" > /var/www/html/index.nginx-debian.html
-echo "Ceci n'est pas une page" > sudo /var/www/html/404.html
+echo "Ceci n'est pas une page" > /var/www/html/404.html
 sudo chmod 644 /var/www/html/*
 sudo sed -i '48i \\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n' /etc/nginx/sites-available/default
 
