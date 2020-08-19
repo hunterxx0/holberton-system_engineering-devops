@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# World wide web
+#shellcheck disable=SC2086
+func()
+{
+if [ "$#" -eq 2 ];
+then
+
+dig "$2.$1" | grep -A1 'ANSWER SECTION:' | awk -v opt=$2 'NR==2{print "The subdomain", opt, "is a", $4, "record and points to", $5 }'
+else
+dig "www.$1" | grep -A1 'ANSWER SECTION:' | awk -v opt="www" 'NR==2{print "The subdomain", opt, "is a", $4, "record and points to", $5 }'
+dig "lb-01.$1" | grep -A1 'ANSWER SECTION:' | awk -v opt="lb-01" 'NR==2{print "The subdomain", opt, "is a", $4, "record and points to", $5 }'
+dig "web-01.$1" | grep -A1 'ANSWER SECTION:' | awk -v opt="web-01" 'NR==2{print "The subdomain", opt, "is a", $4, "record and points to", $5 }'
+dig "web-02.$1" | grep -A1 'ANSWER SECTION:' | awk -v opt="web-02" 'NR==2{print "The subdomain", opt, "is a", $4, "record and points to", $5 }'
+fi
+
+}
+
+if [ "$#" -eq 2 ];
+then
+    func "$1" "$2"
+else
+    func "$1"
+fi
