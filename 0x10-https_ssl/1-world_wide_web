@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # World wide web
-#shellcheck disable=SC2086
+# shellcheck disable=SC2086
 func()
 {
 if [ "$#" -eq 2 ];
