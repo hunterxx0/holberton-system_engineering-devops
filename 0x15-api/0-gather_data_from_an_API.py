@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """ Fetches https://intranet.hbtn.io/status """
+from json import loads
 from requests import get
 from sys import argv
-from json import loads
+
 
 if __name__ == "__main__":
     user_id = eval(argv[1])
