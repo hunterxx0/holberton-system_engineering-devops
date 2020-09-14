@@ -18,7 +18,7 @@ if __name__ == "__main__":
             result.append(dic)
     username = eval(user).get('username')
     with open('{}.csv'.format(user_id), mode='w', encoding='utf-8') as f:
-        w = csv.writer(f)
+        w = csv.writer(f, quoting=csv.QUOTE_ALL)
         for dic in result:
             ll = []
             ll.append(user_id)
