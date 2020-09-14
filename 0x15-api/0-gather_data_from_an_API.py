@@ -16,7 +16,7 @@ if __name__ == "__main__":
     for dic in dict_list:
         if dic['userId'] == user_id:
             result.append(dic)
-            if dic['completed'] == True:
+            if dic['completed'] is True:
                 done += 1
                 title_list.append(dic['title'])
     print("Employee {} is done with tasks({}/{}):"
