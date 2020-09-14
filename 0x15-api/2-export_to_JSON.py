@@ -15,9 +15,11 @@ if __name__ == "__main__":
     username = eval(user).get('username')
     for dic in dict_list:
         if dic['userId'] == user_id:
-            tmp = dic.copy()
-            del tmp["id"]
-            del tmp["userId"]
+            tmp = {
+                "task": dic['title'],
+                "completed": dic['completed'],
+                "username": username
+            }
             tmp["username"] = username
             result.append(tmp)
     with open('{}.json'.format(user_id), mode='w', encoding='utf-8') as f:
