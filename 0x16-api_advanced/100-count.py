@@ -21,7 +21,10 @@ def count_words(subreddit, word_list, flag=None, c=0, idx=0, ll={}):
             if c != 0:
                 ll[word_list[idx]] = c
             if len(ll) > 0:
-                a = sorted(ll.items(), key=lambda x: x[1], reverse=True)
+                if len(set(list(ll.values()))) <= 1:
+                    a = sorted(list(ll.items()))
+                else:
+                    a = sorted(ll.items(), key=lambda x: x[1], reverse=True)
                 for x, y in a:
                     print("{}: {}".format(x, y))
             return
