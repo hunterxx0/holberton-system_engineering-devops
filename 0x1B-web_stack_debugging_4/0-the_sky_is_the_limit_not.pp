@@ -1,5 +1,5 @@
 # .php
 exec { 'setting.php':
   path    => ['/bin'],
-  command => "",
+  command => "rm -f abcdef",
   }
